@@ -1,0 +1,7 @@
+{
+  "name": "wunder-case",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
