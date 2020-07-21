@@ -1,8 +1,8 @@
 {
   "name": "wunder-case",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "author": "Safa Akyüz",
+  "homepage": "https://wunder-case-study.web.app/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -19,6 +19,7 @@
     "@angular/platform-browser": "~9.1.6",
     "@angular/platform-browser-dynamic": "~9.1.6",
     "@angular/router": "~9.1.6",
+    "@angular/service-worker": "~9.1.6",
     "@capacitor/core": "2.3.0",
     "@ionic-native/core": "^5.0.7",
     "@ionic-native/splash-screen": "^5.0.0",
@@ -52,5 +53,5 @@
     "tslint": "~6.1.0",
     "typescript": "~3.8.3"
   },
-  "description": "An Ionic project"
+  "description": "wunder case study project"
 }
