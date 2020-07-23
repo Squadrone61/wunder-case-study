@@ -1,0 +1,9 @@
+<ion-list>
+  <ion-list-header>Settings</ion-list-header>
+  <ion-item>
+    <ion-label>Koyu Tema</ion-label>
+
+    <ion-toggle color="primary" [(ngModel)]="isDarkMode"  (ionChange)="toggleDarkTheme()" ></ion-toggle>
+  </ion-item>
+  <ion-item lines="none" detail="false" button (click)="dismiss()">Close</ion-item>
+</ion-list>

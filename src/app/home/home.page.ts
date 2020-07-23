@@ -1,49 +1,61 @@
-import { Component, OnInit } from '@angular/core';
-import { ToastController } from '@ionic/angular';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ToastController, PopoverController } from '@ionic/angular';
+import { SettingsMenuComponent } from './settings-menu/settings-menu.component';
+import { Observable, Subscription } from 'rxjs';
+import { SocketService } from '../_services/socket.service';
+import { User } from '../_model/User.model';
+import { UserProviderService } from '../_services/user-provider.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
 })
-export class HomePage implements OnInit {
+export class HomePage implements OnInit, OnDestroy {
 
-  constructor(public toastController: ToastController) { }
+  userList: Array<User> = [];
+  subs: Subscription;
+
+  constructor(
+    public popoverController: PopoverController,
+    private socketService: SocketService,
+    private userProv: UserProviderService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+    this.subs = this.socketService
+      .getSocketData()
+      .subscribe((data: { results: User[] }) => {
+        data.results.forEach(user => {
+          this.userList.push(user)
+        })
+      })
+
   }
 
-  async presentToast() {
-    const toast = await this.toastController.create({
-      message: 'Your settings have been saved.',
-      duration: 2000
-    });
-    toast.present();
+  ngOnDestroy() {
+    this.subs.unsubscribe();
   }
 
-  async presentToastWithOptions() {
-    const toast = await this.toastController.create({
-      header: 'Toast header',
-      message: 'Click to Close',
-      position: 'top',
-      buttons: [
-        {
-          side: 'start',
-          icon: 'star',
-          text: 'Favorite',
-          handler: () => {
-            console.log('Favorite clicked');
-          }
-        }, {
-          text: 'Done',
-          role: 'cancel',
-          handler: () => {
-            console.log('Cancel clicked');
-          }
-        }
-      ]
-    });
-    toast.present();
+  toDetails(user: User) {
+    this.userProv.selectUser(user);
+    this.router.navigate(['/details'])
+
   }
-  
+
+ 
+
+  async settingsMenu(ev: any) {
+    const popover = await this.popoverController.create({
+      component: SettingsMenuComponent,
+      animated: true,
+      event: ev,
+      translucent: true
+    });
+    return await popover.present();
+  }
+
+
 }
