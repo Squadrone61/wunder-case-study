@@ -15,7 +15,7 @@
 <ion-content>
 
 
-  <ion-list lines="full" *ngIf="userList?.length  else loading">
+  <ion-list lines="full" *ngIf="userList?.length">
 
     <ion-item detail="false" button *ngFor="let user of userList" (click)="toDetails(user)">
       <ion-avatar slot="start">
@@ -40,17 +40,3 @@
 
 
 </ion-content>
-
-
-<ion-footer>
-  <ion-toolbar>
-
-    <ion-buttons slot="end">
-      <ion-menu-button menu="menuId"></ion-menu-button>
-    </ion-buttons>
-
-  </ion-toolbar>
-</ion-footer>
-
-
-<ng-template #loading>Loading User Data...</ng-template>

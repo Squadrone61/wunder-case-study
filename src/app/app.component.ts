@@ -38,12 +38,13 @@ export class AppComponent {
 
   async presentToast() {
     const toast = await this.toastController.create({
-      message: 'New Update Available',
+      message: 'New Update Available,',
       duration: 2000
     });
-    toast.present().then((value) => {
+
+    toast.onDidDismiss().then(() => {
       window.location.reload();
-    });
+    })
   }
 
 }
