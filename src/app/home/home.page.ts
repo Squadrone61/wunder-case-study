@@ -32,6 +32,48 @@ export class HomePage implements OnInit, OnDestroy {
       this.loader = el;
     })
     this.getUserData()
+
+    /*  this.userList = [{
+       dob: {
+         age: 34
+       },
+       name: {
+         first: 'Safa',
+         last: 'Akyüz'
+       },
+       email: 'asdasd@asdasd.com',
+       gender: 'female',
+       location: {
+         coordinates: {
+           latitude: '40.989794',
+           longitude: '29.053735'
+         }
+       },
+       picture: {
+         thumbnail: 'https://i.pinimg.com/236x/6a/96/fb/6a96fbc57f6f014c56ff0d52c2036143.jpg'
+       }
+     },
+     {
+       dob: {
+         age: 34
+       },
+       name: {
+         first: 'Safa',
+         last: 'Akyüz'
+       },
+       email: 'asdasd@asdasd.com',
+       gender: 'female',
+       location: {
+         coordinates: {
+           latitude: '40.989794',
+           longitude: '29.053735'
+         }
+       },
+       picture: {
+         thumbnail: 'https://i.pinimg.com/236x/6a/96/fb/6a96fbc57f6f014c56ff0d52c2036143.jpg'
+       }
+     }] */
+
   }
 
   ngOnDestroy() {
@@ -72,6 +114,10 @@ export class HomePage implements OnInit, OnDestroy {
       translucent: true
     });
     return await popover.present();
+  }
+
+  doRefresh(event) {
+    window.location.reload();
   }
 
   async serviceUnavailable() {

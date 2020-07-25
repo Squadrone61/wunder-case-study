@@ -1,18 +1,80 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>details</ion-title>
+    <ion-title color="medium" size="medium" class="ion-text-uppercase title">My Profile</ion-title>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref=""></ion-back-button>
+      <ion-back-button color="primary" slot="icon-only" defaultHref=""></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-  <p>{{user.name.title}} {{user.name.first}} {{user.name.last}}</p>
-  <p>{{user.dob.age}}</p>
-  <p>{{user.gender}}</p>
-  <p>{{user.email}}</p>
-  <p>{{user.location.city}}</p>
+
+  <ion-grid class="ion-no-padding page-full-grid">
+
+    <ion-row class="details-header">
+
+      <ion-col class="widget-container">
+
+        <ion-row class="fill-parent">
+          <ion-col size="5" class="widget-body">
+            <ion-avatar class="center header-avatar">
+              <img [src]="user.picture.thumbnail">
+            </ion-avatar>
+          </ion-col>
+          <ion-col class="header-name-wrap">
+            <ion-text color="medium">
+              <h5 class="header-text">Name</h5>
+            </ion-text>
+            <ion-text color="primary">
+              <h1 class="header-text">{{user.name.first}} {{user.name.last}}</h1>
+            </ion-text>
+
+          </ion-col>
+        </ion-row>
+
+
+      </ion-col>
+
+    </ion-row>
+    <ion-row class="details-row1">
+
+      <ion-col class="widget-container">
+
+        <app-g-map [location]="{ 
+          lat: user.location.coordinates.latitude, 
+          lng: user.location.coordinates.longitude}">
+        </app-g-map>
+        <ion-text color="medium">
+          <h5 class="widget-title">Location</h5>
+        </ion-text>
+      </ion-col>
+
+    </ion-row>
+    <ion-row class="details-row2">
+
+      <ion-col size="5" class="widget-container border-right">
+        <ion-text color="medium">
+          <h5 class="widget-title">Gender</h5>
+        </ion-text>
+        <div class="widget-body">
+          <ion-icon class="gender-icon" color="primary"
+            [name]="user.gender === 'male' ? 'male-outline' : 'female-outline'"></ion-icon>
+        </div>
+
+      </ion-col>
+      <ion-col class="widget-container">
+        <ion-text color="medium">
+
+          <app-user-age [age]="user.dob.age"></app-user-age>
+          <h5 class="widget-title">Age</h5>
+        </ion-text>
+
+      </ion-col>
+
+    </ion-row>
+
+  </ion-grid>
+
 
 </ion-content>

@@ -1,19 +1,19 @@
-<ion-header>
-  <ion-toolbar class="ion-padding-vertical">
-
+<ion-header class="ion-no-border">
+  <ion-toolbar class="ion-no-border">
     <ion-title color="medium" size="medium" class="ion-text-uppercase title">profiles</ion-title>
     <ion-buttons slot="end">
-
-      <ion-button (click)="settingsMenu($event)">
-        <ion-icon style="font-size: 70px;" name="reorder-three-outline"></ion-icon>
+      <ion-button color="primary" (click)="settingsMenu($event)">
+        <ion-icon slot="icon-only" name="reorder-three-outline"></ion-icon>
       </ion-button>
-
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content>
+    </ion-refresher-content>
+  </ion-refresher>
 
   <ion-list lines="full" *ngIf="userList?.length">
 

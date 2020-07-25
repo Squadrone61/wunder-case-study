@@ -1,8 +1,11 @@
-
 .big-icon {
     font-size: 50px;
 }
 
-.custom-list-item {
-    padding: 15px 0;
+.ion-header-row {
+    height: 100%;
+}
+
+ion-item{
+    --min-height: 100px
 }

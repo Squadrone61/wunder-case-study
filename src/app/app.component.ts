@@ -19,6 +19,12 @@ export class AppComponent {
     private toastController: ToastController
   ) {
     this.initializeApp();
+
+    if (this.swUpdate.isEnabled) {
+      this.swUpdate.available.subscribe(() => {
+        this.presentToast()
+      });
+    }
   }
 
   initializeApp() {
@@ -26,14 +32,6 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
-  }
-
-  ngOnInit() {
-    if (this.swUpdate.isEnabled) {
-      this.swUpdate.available.subscribe(() => {
-        this.presentToast()
-      });
-    }
   }
 
   async presentToast() {

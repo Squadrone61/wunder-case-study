@@ -7,14 +7,22 @@ import { IonicModule } from '@ionic/angular';
 import { DetailsPageRoutingModule } from './details-routing.module';
 
 import { DetailsPage } from './details.page';
+import { GMapComponent } from './g-map/g-map.component';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { UserAgeComponent } from './user-age/user-age.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    GoogleMapsModule,
     DetailsPageRoutingModule
   ],
-  declarations: [DetailsPage]
+  declarations: [
+    DetailsPage,
+    GMapComponent,
+    UserAgeComponent
+  ]
 })
-export class DetailsPageModule {}
+export class DetailsPageModule { }

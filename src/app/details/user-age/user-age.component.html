@@ -1,0 +1,20 @@
+<div class="wrap">
+  <div class="back" [ngStyle]="{'height': (100  - fillHeight) + '%'}">
+    <ion-row class="ion-justify-content-end">
+      <ion-col size="4">
+        <div  class="age-text" #ageEl>
+          <span>{{_age}}</span>
+        </div>
+      </ion-col>
+
+    </ion-row>
+
+  </div>
+
+  <ion-row id="fillerEl" [ngStyle]="{'height': (fillHeight) + '%'}">
+
+    <div class="meter-fill"></div>
+  </ion-row>
+
+
+</div>

@@ -1,0 +1,21 @@
+<div #mapWrap class="map">
+  <google-map height="100%"
+              width="100%"
+              [center]="center"
+              [zoom]="zoom"
+              [options]="mapStyles"
+  >
+    <map-marker #marker
+                [position]="center"
+                [options]="markerOptions"
+                >
+
+    </map-marker>
+    <map-info-window class="map-window">
+      
+    </map-info-window>
+
+  </google-map>
+</div>
+
+<!-- AIzaSyBvkulzrJnz30AZCi4I3S92SS6LKF9iSX4 -->

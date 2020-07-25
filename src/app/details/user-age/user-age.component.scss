@@ -1,0 +1,21 @@
+.meter-fill {
+    background-color: var(--ion-color-primary, lightgray);
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+}
+
+.wrap {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.back {
+    display: grid;
+    align-items: end
+}
+
+.age-text{
+    border-bottom: 2px solid  var(--ion-color-primary, lightgray);;
+}
