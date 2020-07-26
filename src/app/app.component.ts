@@ -38,10 +38,10 @@ export class AppComponent {
       message: 'New Update Available,',
       duration: 2000
     });
-
     toast.onDidDismiss().then(() => {
       this.swUpdate.activateUpdate().then(() => { this.updateApp() })
     })
+    toast.present();
   }
 
 

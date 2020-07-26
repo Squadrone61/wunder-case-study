@@ -8,7 +8,7 @@ import { Component, OnInit, Input, SimpleChanges, ViewChild, ElementRef, AfterVi
 export class UserAgeComponent implements AfterViewInit, OnChanges {
 
   fillHeight = 10;
-  fillscale = 90 / 120;
+  fillscale = 80 / 110;
 
 
   _age = 0;
@@ -66,7 +66,7 @@ export class UserAgeComponent implements AfterViewInit, OnChanges {
   }
 
   getFillHeight() {
-    this.fillHeight = (this._age) * this.fillscale
+    this.fillHeight = (this._age * this.fillscale) + 10
   }
 
 }

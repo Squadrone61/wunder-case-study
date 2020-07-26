@@ -135,9 +135,7 @@ export class HomePage implements OnInit, OnDestroy {
       ]
 
     });
-    toast.present().then((value) => {
-
-    });
+    toast.present()
   }
 
   async presentLoading(): Promise<HTMLIonLoadingElement> {
@@ -145,8 +143,11 @@ export class HomePage implements OnInit, OnDestroy {
       spinner: 'circular',
       message: 'Waiting for user data...',
     });
-    await loader.present();
+    loader.present();
 
+    const timer = setTimeout(() => {
+      loader.message = "Waiting for user data... Service may not be available..."
+    }, 15 * 1000)
     return loader
   }
 
