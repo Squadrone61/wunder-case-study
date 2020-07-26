@@ -3,7 +3,7 @@
               width="100%"
               [center]="center"
               [zoom]="zoom"
-              [options]="mapStyles"
+              [options]="isDark ? mapStylesDark : mapStyles"
   >
     <map-marker #marker
                 [position]="center"

@@ -20,17 +20,16 @@ export class AppComponent {
   ) {
     this.initializeApp();
 
-    if (this.swUpdate.isEnabled) {
-      this.swUpdate.available.subscribe(() => {
-        this.presentToast()
-      });
-    }
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+    });
+
+    this.swUpdate.available.subscribe(() => {
+      this.presentToast()
     });
   }
 
@@ -41,8 +40,13 @@ export class AppComponent {
     });
 
     toast.onDidDismiss().then(() => {
-      window.location.reload();
+      this.swUpdate.activateUpdate().then(() => { this.updateApp() })
     })
+  }
+
+
+  updateApp() {
+    document.location.reload();
   }
 
 }

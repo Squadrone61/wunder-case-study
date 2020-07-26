@@ -35,7 +35,7 @@ export class HomePage implements OnInit, OnDestroy {
 
     /*  this.userList = [{
        dob: {
-         age: 34
+         age: 55
        },
        name: {
          first: 'Safa',
@@ -55,7 +55,7 @@ export class HomePage implements OnInit, OnDestroy {
      },
      {
        dob: {
-         age: 34
+         age: 70
        },
        name: {
          first: 'Safa',
@@ -95,6 +95,7 @@ export class HomePage implements OnInit, OnDestroy {
         })
 
   }
+
 
   toDetails(user: User) {
     this.userProv.selectUser(user);

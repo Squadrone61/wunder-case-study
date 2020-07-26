@@ -11,6 +11,8 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+
+
 const socketConfig: SocketIoConfig = { url: 'https://wunder-provider.herokuapp.com/', options: {} }
 
 
